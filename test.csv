@@ -1,0 +1,3 @@
+custno,event1_cat1,event1_cat2,event1_cat4,event1_cat5,event1_cat6,event1_cat7,event1_cat8,event1_cat9,event1_cat10,event1_cat11,event2_cat1,event2_cat2,event2_cat3,event2_cat4,event2_cat5,event2_cat6,event2_cat7,event2_cat8,event2_cat9,event2_cat10,Total_Order,Recency,Total_Revenue,cat1_freq,cat2_freq,cat3_freq,cat4_freq,cat5_freq,cat7_freq,cat1_brow,cat2_brow,cat3_brow
+1,10,2,3,7,1,5,2,8,4,9,6,3,1,7,4,2,9,5,1,8,5,15,100,0.2,0.3,0.1,0.4,0,0,1,3,2
+2,5,8,1,4,2,9,3,6,7,1,2,5,8,4,1,7,3,6,9,2,10,30,250,0.1,0.4,0.2,0.3,0,0,2,4,1

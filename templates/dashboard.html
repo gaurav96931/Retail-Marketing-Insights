@@ -5,30 +5,126 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prediction Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Plotly -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      color: white;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: #007bff;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    tr:hover {
+      background: #e2e6ea;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Prediction Dashboard</h1>
-  <h2>Predictions Table</h2>
-  <div class="table-container">
-    {{ table_html|safe }}
+  <div class="container">
+    <h1>Prediction Dashboard</h1>
+    <div class="card">
+      <h2 class="text-primary">Predictions Table</h2>
+      <div class="table-container">
+        {{ table_html|safe }}
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="text-success">Feature Contribution Analysis</h2>
+      <p class="text-center">{{ explanation|safe }}</p>
+      <form method="POST" class="text-center mt-3">
+        <label for="language"><strong>Select Language:</strong></label>
+        <select name="language" class="form-select d-inline-block w-auto">
+          {% for name, code in languages.items() %}
+          <option value="{{ code }}">{{ name }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-custom mt-2" name="translate">Translate</button>
+      </form>
+      {% if translation %}
+      <div class="mt-4 p-3 bg-success text-white text-center rounded">
+        <h2>Translation:</h2>
+        <p class="fs-4">{{ translation }}</p>
+      </div>
+      {% endif %}
+    </div>
+    <div class="card">
+      <h2 class="text-danger">Analysis Visuals</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="chart">{{ bar_chart|safe }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="chart">{{ pie_chart|safe }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="/" class="btn btn-custom">Back to Home</a>
+    </div>
   </div>
-
-  <h2>Feature Contribution Analysis</h2>
-  <div class="explanation">
-    <p>{{ explanation }}</p>
-  </div>
-
-  <h2>Analysis Visuals</h2>
-  <div class="chart-container">
-    <div class="chart">{{ bar_chart|safe }}</div>
-    <div class="chart">{{ pie_chart|safe }}</div>
-  </div>
-
-  <br>
-  <a href="/">Back to Home</a>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
