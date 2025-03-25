@@ -171,18 +171,18 @@
           <p>{{ explanation|safe }}</p>
         </div>
         <form method="POST" action="/translate" class="text-center">
-          <label for="language"><h3>Select Language:</h3></label>
+          <label for="language"><strong>Select Language:</strong></label>
           <select name="language" class="form-select">
             {% for name, code in languages.items() %}
             <option value="{{ code }}" {% if code == selected_lang %}selected{% endif %}>{{ name }}</option>
             {% endfor %}
           </select>
-          <button type="submit" class="btn btn-custom mt-2 m-2" name="translate">Translate</button>
+          <button type="submit" class="btn btn-custom mt-2" name="translate">Translate</button>
         </form>
         {% if translation %}
-        <div class="mt-4 p-3 text-white rounded feature-explanation">
+        <div class="mt-4 p-3 bg-success text-white text-center rounded">
           <h2 class="h4">Translation:</h2>
-          <p class="fs-5">{{ translation|safe }}</p>
+          <p class="fs-5">{{ translation }}</p>
         </div>
         {% endif %}
       </div>

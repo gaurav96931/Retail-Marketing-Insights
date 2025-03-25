@@ -1,0 +1,2 @@
+customer_id,event1_cat1,event1_cat2,event1_cat4,event1_cat5,event1_cat6,event1_cat7,event1_cat8,event1_cat9,event1_cat10,event1_cat11,event2_cat1,event2_cat2,event2_cat3,event2_cat4,event2_cat5,event2_cat6,event2_cat7,event2_cat8,event2_cat9,event2_cat10,cat1_brow,cat2_brow,cat3_brow,Total_Order,Total_Revenue,Recency,cat1_freq,cat2_freq,cat3_freq,cat4_freq,cat5_freq,cat7_freq
+8826,3,1,0,0,0,0,0,0,0,1,3,0,1,2,0,0,5,1,1,2,0,0,15,9,643.62,9,0.111111111,0.333333333,0.222222222,0,0,0.333333333
