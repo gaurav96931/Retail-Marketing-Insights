@@ -5,9 +5,11 @@ import requests
 import json
 import plotly.express as px
 import plotly.io as pio
-import os
 import markdown
-import re
+# from azure.ai.contentsafety import ContentSafetyClient
+# from azure.ai.contentsafety.models import TextCategory, AnalyzeTextOptions
+# from azure.core.credentials import AzureKeyCredential
+# from azure.core.exceptions import HttpResponseError
 
 app = Flask(__name__)
 
@@ -117,6 +119,30 @@ def get_feature_explanation(features, prediction, customer_id):
     else:
         return f"Error {response.status_code}: {response.text}"
 
+def contains_prohibited_content(text: str, endpoint: str, key: str) -> bool:
+    """
+    Checks if the input text contains any prohibited content.
+    Returns True if any category (HATE, SELF_HARM, SEXUAL, VIOLENCE) has a severity > 0.
+    """
+    client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
+    request = AnalyzeTextOptions(text=text)
+    
+    try:
+        response = client.analyze_text(request)
+    except HttpResponseError as e:
+        print("Analyze text failed.")
+        if e.error:
+            print(f"Error code: {e.error.code}")
+            print(f"Error message: {e.error.message}")
+        return False
+    
+    for category in [TextCategory.HATE, TextCategory.SELF_HARM, TextCategory.SEXUAL, TextCategory.VIOLENCE]:
+        result = next((item for item in response.categories_analysis if item.category == category), None)
+        if result and result.severity > 0:
+            return False
+    
+    return True
+
 def generate_visuals(df):
     """
     Generates Plotly visualizations (a bar chart and a pie chart) for the given DataFrame.
@@ -188,7 +214,6 @@ def transalte():
     translation = ""
     text = explanation  # Preserve text input
     selected_lang = request.form.get("language", "")  # Preserve selected language
-    print("k", text, selected_lang)
     if request.method == "POST" and "translate" in request.form:
         if text and selected_lang:
             translation = translate_text(text, selected_lang)
@@ -214,9 +239,6 @@ def predict():
         customer_id = df['customer_id'][0]
         # reomve customer_id column
         df = df.iloc[:, 1:]
-        print(df.head())
-
-        # print(type(df), df.shape)
         
         # Make predictions using the loaded model
         predictions = model.predict_proba(df)
