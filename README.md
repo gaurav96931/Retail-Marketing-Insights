@@ -106,26 +106,26 @@ By integrating these Azure AI services, the system ensures accurate predictions,
 ### Installation
 
 1. Clone the repository:
-   sh
+   ```sh
    git clone https://github.com/gaurav96931/Retail-Marketing-Insights.git
-   
+   ```
    
 2. Install the required dependencies:
-   sh
+   ```sh
    pip install -r requirements.txt
-   
+   ```
 3. Set up environment variables for Azure services.
 4. Run the Flask API:
-   sh
+   ```sh
    python src/api.py
-   
+   ```
 5. Open http://localhost:5000 in your browser to access the dashboard.
 
 ---
 
 ## Repository Structure
 
-
+```
 Retail-Marketing-Insights/
 │── static/                      # Static files (CSS, JS, images)
 │── templates/                   # HTML templates for frontend
@@ -141,7 +141,7 @@ Retail-Marketing-Insights/
 │── requirements.txt             # Required dependencies
 │── test.csv                      # Sample dataset
 │── trained_model.pkl             # Trained ML model
-
+```
 
 ---
 
