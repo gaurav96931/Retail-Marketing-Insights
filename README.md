@@ -127,15 +127,12 @@ By integrating these Azure AI services, the system ensures accurate predictions,
 
 ```
 Retail-Marketing-Insights/
-│── static/                      # Static files (CSS, JS, images)
 │── templates/                   # HTML templates for frontend
 │   ├── dashboard.html
 │   ├── index.html
-│── venv/                        # Virtual environment
 │── .gitignore                   # Git ignore file
 │── app.py                        # Flask application
 │── customer_history.json        # Sample customer history data
-│── dff.py                        # Data processing script
 │── LICENSE                      # Project license
 │── README.md                    # Project documentation
 │── requirements.txt             # Required dependencies
