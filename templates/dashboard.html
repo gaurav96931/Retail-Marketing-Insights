@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <h1>Prediction Dashboard</h1>
+  <h2>Predictions Table</h2>
+  <div class="table-container">
+    {{ table_html|safe }}
+  </div>
+
+  <h2>Feature Contribution Analysis</h2>
+  <div class="explanation">
+    <p>{{ explanation }}</p>
+  </div>
+
+  <h2>Analysis Visuals</h2>
+  <div class="chart-container">
+    <div class="chart">{{ bar_chart|safe }}</div>
+    <div class="chart">{{ pie_chart|safe }}</div>
+  </div>
+
+  <br>
+  <a href="/">Back to Home</a>
+</body>
+
+</html>

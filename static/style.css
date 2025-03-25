@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f7f7f7;
+  margin: 20px;
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+form {
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  width: 50%;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"],
+button {
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+.table-container {
+  margin: 20px auto;
+  width: 90%;
+  overflow-x: auto;
+}
+
+.explanation {
+  margin: 20px auto;
+  width: 80%;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.chart {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"], button {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+}
+
+.table-container {
+    margin: 20px auto;
+    width: 90%;
+    overflow-x: auto;
+}
+
+.explanation {
+    margin: 20px auto;
+    width: 80%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chart {
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"], button {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+}
+
+.table-container {
+    margin: 20px auto;
+    width: 90%;
+    overflow-x: auto;
+}
+
+.explanation {
+    margin: 20px auto;
+    width: 80%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chart {
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
+}

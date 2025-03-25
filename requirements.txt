@@ -1,0 +1,7 @@
+txt
+flask
+pandas
+joblib
+requests
+plotly
+openai
