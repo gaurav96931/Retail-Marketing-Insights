@@ -91,20 +91,20 @@
     </div>
     <div class="card">
       <h2 class="text-success">Feature Contribution Analysis</h2>
-      <p class="text-center">{{ explanation|safe }}</p>
-      <form method="POST" class="text-center mt-3">
+      <p class="text-center" name="text">{{ explanation|safe }}</p>
+      <form method="POST" action="/translate" class="text-center mt-3">
         <label for="language"><strong>Select Language:</strong></label>
         <select name="language" class="form-select d-inline-block w-auto">
           {% for name, code in languages.items() %}
-          <option value="{{ code }}">{{ name }}</option>
+          <option value="{{ code }}" {% if code == selected_lang %}selected{% endif %}>{{ name }}</option>
           {% endfor %}
         </select>
         <button type="submit" class="btn btn-custom mt-2" name="translate">Translate</button>
       </form>
       {% if translation %}
-      <div class="mt-4 p-3 bg-success text-white text-center rounded">
+      <div class="mt-4 p-3 bg-success text-white rounded">
         <h2>Translation:</h2>
-        <p class="fs-4">{{ translation }}</p>
+        <p class="fs-4">{{ translation|safe }}</p>
       </div>
       {% endif %}
     </div>

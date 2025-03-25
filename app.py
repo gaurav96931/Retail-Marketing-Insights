@@ -11,6 +11,13 @@ import re
 
 app = Flask(__name__)
 
+table_html=None
+explanation=None
+bar_chart=None,
+pie_chart=None,
+languages=None
+explanation=None
+
 # Load your trained ML model (update the file name/path as needed)
 MODEL_PATH = "trained_model.pkl"
 model = joblib.load(MODEL_PATH)
@@ -170,8 +177,35 @@ def convert_to_markdown(text):
 def index():
     return render_template("index.html")
 
+@app.route("/translate", methods=["POST"])
+def transalte():
+    global table_html
+    global explanation
+    global bar_chart
+    global pie_chart
+    global languages
+    global explanation
+    translation = ""
+    text = explanation  # Preserve text input
+    selected_lang = request.form.get("language", "")  # Preserve selected language
+    print("k", text, selected_lang)
+    if request.method == "POST" and "translate" in request.form:
+        if text and selected_lang:
+            translation = translate_text(text, selected_lang)
+            print(translation)
+
+
+    return render_template("dashboard.html", languages=LANGUAGES, translation=translation, explanation=text, selected_lang=selected_lang, bar_chart=bar_chart, pie_chart=pie_chart, table_html=table_html)
+    
+
 @app.route("/predict", methods=["POST"])
 def predict():
+    global table_html
+    global explanation
+    global bar_chart
+    global pie_chart
+    global languages
+    global explanation
     try:
         # Accept CSV file from the form upload
         file = request.files["file"]
