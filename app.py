@@ -6,6 +6,7 @@ import json
 import plotly.express as px
 import plotly.io as pio
 import markdown
+import os
 # from azure.ai.contentsafety import ContentSafetyClient
 # from azure.ai.contentsafety.models import TextCategory, AnalyzeTextOptions
 # from azure.core.credentials import AzureKeyCredential
@@ -25,10 +26,10 @@ MODEL_PATH = "trained_model.pkl"
 model = joblib.load(MODEL_PATH)
 
 # Azure OpenAI configuration (Replace with your actual details)
-AZURE_OPENAI_ENDPOINT = "https://ai-aihackthonhub282549186415.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2025-01-01-preview"
-AZURE_AI_SERVICES_END_POINT = "https://ai-aihackthonhub282549186415.cognitiveservices.azure.com/"
-API_KEY = "Fj1KPt7grC6bAkNja7daZUstpP8wZTXsV6Zjr2FOxkO7wsBQ5SzQJQQJ99BCACHYHv6XJ3w3AAAAACOGL3Xg"
-TRANSLATE_ENDPOINT = "https://ai-aihackthonhub282549186415.cognitiveservices.azure.com/translator/text/v3.0/translate"
+AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+AZURE_AI_SERVICES_END_POINT = os.getenv("AZURE_AI_SERVICES_END_POINT")
+API_KEY = os.getenv("API_KEY")
+TRANSLATE_ENDPOINT = os.getenv("TRANSLATE_ENDPOINT")
 
 # Load customer purchase history JSON
 with open("customer_history.json", "r") as f:
